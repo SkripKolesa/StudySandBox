@@ -12,3 +12,4 @@
   url: '/en-US/docs/Tools/Scratchpad'
 };
 
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
