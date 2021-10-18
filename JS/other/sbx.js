@@ -1,4 +1,8 @@
-﻿const key = 'z';
-const obj = {z: 9};
-const {[key]: foo} = obj;
-console.log(foo);
+﻿const props = [
+  {id: 1, name: 'Fizz'},
+  {id: 2, name: 'Bizz'},
+  {id: 3, name: 'Dizz'},
+];
+
+const [,,{name}] = props;
+console.log(name);
