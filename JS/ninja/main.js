@@ -1,7 +1,10 @@
 ﻿import {assert, report} from "./testSuite.js"
 
+function multiMax(first, ...remains) {
+  const sorted = remains.sort((a, b) => b - a);
+  return first * sorted[0];
+}
+
 window.onload = function () {
-  assert(true, 'This one sparks joy');
-  report('tha middle riddle');
-  assert(false, 'This one fucked up');
+  assert(multiMax(3, 2, 3, 1) === 9, 'First arg by largest');
 }

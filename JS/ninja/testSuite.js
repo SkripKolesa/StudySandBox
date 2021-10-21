@@ -1,4 +1,4 @@
-﻿function assert(value, desc) {
+﻿function assert(value, desc = '!') {
   report(desc, value ? 'pass' : 'fail');
 }
 
