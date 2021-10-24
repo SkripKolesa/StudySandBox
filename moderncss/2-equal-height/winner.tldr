@@ -1,0 +1,9 @@
+﻿For purely solving for equal height elements, the advantage of flexbox is the default axis immediately enables
+side-by-side columns, whereas grid needs to be explicitly set.
+However, elements will not inherently be equal-width as well (which may be an advantage depending on type of content,
+for example navigation links).
+
+The advantage of grid is inherently equal-width elements if that is desirable.
+An additional advantage is when you don't want auto-flow but instead want to define a set max number of columns per "row".
+In this case, grid layout easily handles the math to distribute the columns vs. a flexbox solution
+requiring defining the calculation to restrict the number of columns.

@@ -1,0 +1,8 @@
+﻿After seeing grid, you may have a moment of thinking it's clearly superior.
+However, if you add more elements between the header and footer you need to update your template
+(or ensure there's always a wrapping element such as a div to not affect any nested semantics/hierarchy).
+
+On the other hand, the flexbox method is usable across various templates with multiple block elements in the midsection -
+for example, a series of <article> elements instead of a single <main> for an archive page.
+
+So as with all techniques, it depends on the project :) But we can all agree it's amazing to have these modern CSS layout methods!
