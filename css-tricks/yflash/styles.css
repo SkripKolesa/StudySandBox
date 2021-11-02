@@ -17,6 +17,7 @@ body {
   justify-content: center;
   align-items: center;
 }
+
 main {
   max-width: 120ch;
   display: flex;
@@ -25,4 +26,8 @@ main {
   max-height: 100vh;
   overflow: auto;
   scroll-behavior: smooth;
+}
+
+p:target {
+  background: yellow;
 }
