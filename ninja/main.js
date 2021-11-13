@@ -1,19 +1,18 @@
 ﻿import {assert, report} from "./testSuite.js"
 
 window.onload = function () {
-  function* WeaponG() {
-    yield 'Katana';
-    yield 'Wakizashi';
+  const startEl = document.getElementById('subtree');
+
+  function traverseDOM(element, callback) {
+    callback(element);
+    element = element.firstElementChild;
+    while (element) {
+      traverseDOM(element, callback);
+      element = element.nextElementSibling;
+    }
   }
 
-  const weaponIterator = WeaponG();
-
-  const result1 = weaponIterator.next();
-  assert(typeof result1 === 'object' && result1.value === 'Katana' && !result1.done, 'Katana');
-
-  const result2 = weaponIterator.next();
-  assert(typeof result2 === 'object' && result2.value === 'Wakizashi' && !result2.done, 'Wakizashi');
-
-  const result3 = weaponIterator.next();
-  assert(typeof result3 === 'object' && result3.value === undefined && result3.done, 'Done');
+  traverseDOM(startEl, (element) => {
+    assert(element !== null, element.nodeName);
+  })
 }
