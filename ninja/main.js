@@ -1,18 +1,17 @@
-﻿import {assert, report} from "./testSuite.js"
+﻿import {assert, fail, report} from "./testSuite.js"
 
 window.onload = function () {
-  const startEl = document.getElementById('subtree');
-
-  function traverseDOM(element, callback) {
-    callback(element);
-    element = element.firstElementChild;
-    while (element) {
-      traverseDOM(element, callback);
-      element = element.nextElementSibling;
+  function* NinjaGenerator() {
+    try {
+      yield "Hattori";
+      fail("The expected exception didn't occur");
+    } catch (e) {
+      assert(e === 'Catch this!', "Aha! We caught an exception");
     }
   }
 
-  traverseDOM(startEl, (element) => {
-    assert(element !== null, element.nodeName);
-  })
+  const ninjaIterator = NinjaGenerator();
+  const result1 = ninjaIterator.next();
+  assert(result1.value === 'Hattori', 'We got Hattori');
+  ninjaIterator.throw('Catch this!');
 }

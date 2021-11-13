@@ -9,4 +9,8 @@ function report(message, className = 'report') {
   document.getElementById('results').appendChild(li);
 }
 
-export {assert, report};
+function fail(message) {
+  report(message, 'fail');
+}
+
+export {assert, report, fail};
