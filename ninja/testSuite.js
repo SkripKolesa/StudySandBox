@@ -1,5 +1,5 @@
 ﻿function assert(value, desc = '!') {
-  report(desc, value ? 'pass' : 'fail');
+  value? pass(desc): fail(desc);
 }
 
 function report(message, className = 'report') {
@@ -11,6 +11,10 @@ function report(message, className = 'report') {
 
 function fail(message) {
   report(message, 'fail');
+}
+
+function pass(message){
+  report(message, 'pass');
 }
 
 export {assert, report, fail};
