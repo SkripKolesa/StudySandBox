@@ -1,28 +1,22 @@
 ﻿import {assert, fail, report} from "./testSuite.js"
 
 window.onload = function () {
-  function Ninja(){
-    this.swung = true;
+  function Person() {
+  };
+  Person.prototype.dance = function () {
+  };
+
+  function Ninja() {
   }
 
-  const n1 = new Ninja();
+  Ninja.prototype = new Person();
 
-  Ninja.prototype.swingSword = function(){
-    return this.swung;
-  };
+  const ninja = new Ninja();
 
-  assert(n1.swingSword(), "Method exists even out of order");
-  Ninja.prototype = {
-    pierce: function(){
-      return true;
-    }
-  };
-
-  assert(n1.swingSword(), "n1 can still swing");
-  assert(!("pierce" in n1), "n1 cant pierce");
-
-  const n2 = new Ninja();
-  assert(n2.pierce(), "n2 can pierce");
-  assert(!("swingSword" in n2), "n2 can't swing");
+  assert(ninja instanceof Ninja, "ninja is Ninja");
+  assert(ninja instanceof Person, "ninja is Person");
+  assert(ninja instanceof Object, "ninja is Object");
+  assert(typeof ninja.dance === "function", "ninja can dance");
+  assert(ninja.constructor === Ninja, "ninja constructor is Ninja");
 }
 
