@@ -1,22 +1,26 @@
 ﻿import {assert, fail, report} from "./testSuite.js"
 
 window.onload = function () {
-  function Person() {
-  };
-  Person.prototype.dance = function () {
-  };
+  try {
+    const ninja = {};
+    ninja.name = "Yoshi";
+    ninja.weapon = "kusarigama";
 
-  function Ninja() {
+    Object.defineProperty(ninja, "sneaky", {
+      configurable: false,
+      enumerable: false,
+      value: true,
+      writable: true
+    });
+    assert("sneaky" in ninja, "We can access the new property");
+    delete ninja.sneaky;
+    assert("sneaky" in ninja, "We can access the new property");
+  }
+  catch (ex){
+    report(ex.message, 'exception');
   }
 
-  Ninja.prototype = new Person();
 
-  const ninja = new Ninja();
 
-  assert(ninja instanceof Ninja, "ninja is Ninja");
-  assert(ninja instanceof Person, "ninja is Person");
-  assert(ninja instanceof Object, "ninja is Object");
-  assert(typeof ninja.dance === "function", "ninja can dance");
-  assert(ninja.constructor === Ninja, "ninja constructor is Ninja");
 }
 

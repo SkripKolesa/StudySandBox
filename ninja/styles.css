@@ -19,3 +19,9 @@
 #results li.report {
   color: darkslategray;
 }
+
+#results li.exception {
+  color: black;
+  background: red;
+  text-transform: uppercase;
+}
