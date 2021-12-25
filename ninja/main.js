@@ -2,25 +2,12 @@
 
 window.onload = function () {
   try {
-    const ninja = {};
-    ninja.name = "Yoshi";
-    ninja.weapon = "kusarigama";
-
-    Object.defineProperty(ninja, "sneaky", {
-      configurable: false,
-      enumerable: false,
-      value: true,
-      writable: true
-    });
-    assert("sneaky" in ninja, "We can access the new property");
-    delete ninja.sneaky;
-    assert("sneaky" in ninja, "We can access the new property");
-  }
-  catch (ex){
+    const A = new Set(['Kuma', 'Hattori', 'Yagyu']);
+    const B = new Set(['Hattori', 'Oda', 'Tomoe']);
+    const C = new Set([...A, ...B]);
+    report([...C]);
+  } catch (ex) {
     report(ex.message, 'exception');
   }
-
-
-
 }
 
