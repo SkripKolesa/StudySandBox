@@ -2,12 +2,21 @@
 
 window.onload = function () {
   try {
-    const A = new Set(['Kuma', 'Hattori', 'Yagyu']);
-    const B = new Set(['Hattori', 'Oda', 'Tomoe']);
-    const C = new Set([...A, ...B]);
-    report([...C]);
+    function* G() {
+      try {
+        yield 1;
+        yield 0;
+      } catch (ex) {
+        report(ex);
+      }
+    }
+
+    const iterator = G();
+    report(iterator.next().value);
+    iterator.throw("privet");
   } catch (ex) {
-    report(ex.message, 'exception');
+    fail(ex);
   }
+
 }
 
